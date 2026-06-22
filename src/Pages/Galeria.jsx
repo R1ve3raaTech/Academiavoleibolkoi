@@ -26,22 +26,23 @@ export default function Galeria() {
         className="grid gap-6 px-8 pb-20 md:grid-cols-2 lg:grid-cols-3"
       >
         {CATEGORIAS_GALERIA.map((categoria) => (
-          <Carousel
-            key={categoria.title}
-            images={categoria.images}
-            fit="contain"
-            className="aspect-[4/3] rounded-2xl shadow-sm transition-transform duration-500 ease-out hover:-translate-y-1"
-            overlay={
-              <div className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/85 via-black/15 to-transparent p-5">
-                <h2 className="text-xl font-bold text-white">
-                  {categoria.title}
-                </h2>
-                <p className="mt-1 text-sm text-white/80">
-                  {categoria.description}
-                </p>
-              </div>
-            }
-          />
+          <div key={categoria.title}>
+            <Carousel
+              images={categoria.images}
+              fit="contain"
+              className="aspect-[4/3] rounded-2xl shadow-sm transition-transform duration-500 ease-out hover:-translate-y-1"
+              overlay={
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/75 to-transparent px-4 pb-3 pt-8">
+                  <h2 className="text-base font-bold text-white drop-shadow">
+                    {categoria.title}
+                  </h2>
+                </div>
+              }
+            />
+            <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+              {categoria.description}
+            </p>
+          </div>
         ))}
       </Reveal>
     </div>
