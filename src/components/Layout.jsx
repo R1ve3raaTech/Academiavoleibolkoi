@@ -3,6 +3,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { ScrollSmoother, ScrollTrigger } from '@/lib/gsap'
 import Navbar from './Navbar'
 import Footer from './Footer'
+import CustomCursor from './CustomCursor'
 
 export default function Layout() {
   const wrapperRef = useRef(null)
@@ -35,6 +36,7 @@ export default function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <CustomCursor />
       <Navbar />
       <div ref={wrapperRef} id="smooth-wrapper">
         <div ref={contentRef} id="smooth-content">
