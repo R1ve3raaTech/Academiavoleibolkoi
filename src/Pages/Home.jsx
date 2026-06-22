@@ -1,10 +1,8 @@
-import { lazy, Suspense, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { CheckCircle2 } from 'lucide-react'
 import logo from '@/assets/Photos/logo.png'
 import WhatsappButton from '@/components/WhatsappButton'
 import Reveal from '@/components/Reveal'
-
-const HeroBall = lazy(() => import('@/components/HeroBall'))
 import { Button } from '@/components/ui/button'
 import { CONTACT } from '@/lib/contact'
 import { celebrate } from '@/lib/confetti'
@@ -75,9 +73,6 @@ export default function Home() {
             <p className="mt-4 text-lg tracking-[0.3em]">COSTA RICA</p>
           </div>
         </div>
-        <Suspense fallback={null}>
-          <HeroBall />
-        </Suspense>
       </section>
 
       <Reveal as="div" y={12} className="flex justify-center py-8">
