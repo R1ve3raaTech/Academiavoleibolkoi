@@ -2,7 +2,14 @@ import { useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { gsap } from '@/lib/gsap'
 
-export default function Carousel({ images, autoplay = true, interval = 4500 }) {
+export default function Carousel({
+  images,
+  autoplay = true,
+  interval = 4500,
+  fit = 'contain',
+  overlay,
+  className = '',
+}) {
   const [index, setIndex] = useState(0)
   const trackRef = useRef(null)
   const slideRefs = useRef([])
@@ -35,22 +42,24 @@ export default function Carousel({ images, autoplay = true, interval = 4500 }) {
   }, [autoplay, interval, index, images.length])
 
   return (
-    <div className="group relative w-full">
-      <div
-        ref={trackRef}
-        className="relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-zinc-900"
-      >
-        {images.map((src, i) => (
-          <img
-            key={src}
-            ref={(el) => (slideRefs.current[i] = el)}
-            src={src}
-            alt=""
-            className="absolute inset-0 h-full w-full object-contain"
-            style={{ opacity: i === index ? 1 : 0 }}
-          />
-        ))}
-      </div>
+    <div
+      ref={trackRef}
+      className={`group relative w-full overflow-hidden bg-zinc-900 ${className}`}
+    >
+      {images.map((src, i) => (
+        <img
+          key={src}
+          ref={(el) => (slideRefs.current[i] = el)}
+          src={src}
+          alt=""
+          className={`absolute inset-0 h-full w-full ${
+            fit === 'cover' ? 'object-cover' : 'object-contain'
+          }`}
+          style={{ opacity: i === index ? 1 : 0 }}
+        />
+      ))}
+
+      {overlay}
 
       {images.length > 1 && (
         <>
@@ -58,7 +67,7 @@ export default function Carousel({ images, autoplay = true, interval = 4500 }) {
             type="button"
             onClick={() => goTo(index - 1)}
             aria-label="Anterior"
-            className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-1.5 opacity-0 shadow-md transition-opacity duration-300 group-hover:opacity-100"
+            className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-1.5 opacity-0 shadow-md transition-opacity duration-300 group-hover:opacity-100"
           >
             <ChevronLeft className="h-4 w-4 text-zinc-800" />
           </button>
@@ -66,21 +75,19 @@ export default function Carousel({ images, autoplay = true, interval = 4500 }) {
             type="button"
             onClick={() => goTo(index + 1)}
             aria-label="Siguiente"
-            className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-1.5 opacity-0 shadow-md transition-opacity duration-300 group-hover:opacity-100"
+            className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-1.5 opacity-0 shadow-md transition-opacity duration-300 group-hover:opacity-100"
           >
             <ChevronRight className="h-4 w-4 text-zinc-800" />
           </button>
 
-          <div className="mt-3 flex justify-center gap-2">
+          <div className="absolute inset-x-0 bottom-3 z-10 flex justify-center gap-2">
             {images.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
                 aria-label={`Imagen ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === index
-                    ? 'w-6 bg-orange-600 dark:bg-orange-500'
-                    : 'w-1.5 bg-zinc-300 dark:bg-zinc-600'
+                  i === index ? 'w-6 bg-orange-500' : 'w-1.5 bg-white/60'
                 }`}
               />
             ))}

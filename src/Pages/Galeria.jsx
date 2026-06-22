@@ -19,29 +19,31 @@ export default function Galeria() {
         </p>
       </Reveal>
 
-      <div className="flex flex-col gap-20 px-8 pb-20">
-        {CATEGORIAS_GALERIA.map((categoria, i) => (
-          <Reveal
+      <Reveal
+        as="section"
+        y={24}
+        batch
+        className="grid gap-6 px-8 pb-20 md:grid-cols-2 lg:grid-cols-3"
+      >
+        {CATEGORIAS_GALERIA.map((categoria) => (
+          <Carousel
             key={categoria.title}
-            as="section"
-            y={28}
-            className={`grid items-center gap-10 md:grid-cols-2 ${
-              i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''
-            }`}
-          >
-            <div className="text-left">
-              <h2 className="text-2xl font-bold text-blue-700 dark:text-blue-400">
-                {categoria.title}
-              </h2>
-              <div className="mt-2 h-1 w-10 bg-orange-600 dark:bg-orange-500" />
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                {categoria.description}
-              </p>
-            </div>
-            <Carousel images={categoria.images} />
-          </Reveal>
+            images={categoria.images}
+            fit="cover"
+            className="aspect-[4/5] rounded-2xl shadow-sm transition-transform duration-500 ease-out hover:-translate-y-1"
+            overlay={
+              <div className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/85 via-black/15 to-transparent p-5">
+                <h2 className="text-xl font-bold text-white">
+                  {categoria.title}
+                </h2>
+                <p className="mt-1 text-sm text-white/80">
+                  {categoria.description}
+                </p>
+              </div>
+            }
+          />
         ))}
-      </div>
+      </Reveal>
     </div>
   )
 }
