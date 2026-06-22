@@ -1,5 +1,5 @@
 export const CONTACT = {
-  phone: '8521-1991',
+  phone: '+506 8521-1991',
   whatsappLink: 'https://wa.me/50685211991',
   email: 'voleibolkoi@gmail.com',
   youtube: 'https://www.youtube.com/@VoleibolKoi',
