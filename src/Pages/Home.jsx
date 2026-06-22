@@ -5,6 +5,7 @@ import WhatsappButton from '@/components/WhatsappButton'
 import Reveal from '@/components/Reveal'
 import { Button } from '@/components/ui/button'
 import { CONTACT } from '@/lib/contact'
+import { celebrate } from '@/lib/confetti'
 import { gsap, ScrollTrigger, SplitText } from '@/lib/gsap'
 
 const values = ['Liderazgo', 'Disciplina', 'Integridad']
@@ -117,7 +118,12 @@ export default function Home() {
               asChild
               className="mt-5 rounded-md bg-orange-600 hover:bg-orange-700"
             >
-              <a href={CONTACT.signupForm} target="_blank" rel="noreferrer">
+              <a
+                href={CONTACT.signupForm}
+                target="_blank"
+                rel="noreferrer"
+                onClick={celebrate}
+              >
                 INSCRÍBETE
               </a>
             </Button>

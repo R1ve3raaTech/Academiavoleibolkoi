@@ -4,6 +4,7 @@ import { Menu, X } from 'lucide-react'
 import logo from '@/assets/Photos/logo.png'
 import { CONTACT } from '@/lib/contact'
 import { gsap, ScrollTrigger } from '@/lib/gsap'
+import { celebrate } from '@/lib/confetti'
 import ThemeToggle from './ThemeToggle'
 
 const links = [
@@ -114,6 +115,7 @@ export default function Navbar() {
             href={CONTACT.signupForm}
             target="_blank"
             rel="noreferrer"
+            onClick={celebrate}
             className="hidden shrink-0 rounded-md bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-700 sm:block"
           >
             INSCRIBIRSE
@@ -160,7 +162,10 @@ export default function Navbar() {
           href={CONTACT.signupForm}
           target="_blank"
           rel="noreferrer"
-          onClick={() => setOpen(false)}
+          onClick={() => {
+            setOpen(false)
+            celebrate()
+          }}
           className="mt-2 rounded-md bg-orange-600 px-3 py-2 text-center font-semibold text-white sm:hidden"
         >
           INSCRIBIRSE
