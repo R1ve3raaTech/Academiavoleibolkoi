@@ -12,7 +12,6 @@ const links = [
   { to: '/alianzas', label: 'Alianzas' },
   { to: '/galeria', label: 'Galería' },
   { to: '/campamentos', label: 'Campamentos' },
-  { to: '/juego', label: 'Jugar' },
 ]
 
 export default function Navbar() {
