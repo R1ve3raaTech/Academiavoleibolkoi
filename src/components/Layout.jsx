@@ -5,6 +5,7 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 import CustomCursor from './CustomCursor'
 import ScrollBall from './ScrollBall'
+import PageTransition from './PageTransition'
 
 export default function Layout() {
   const wrapperRef = useRef(null)
@@ -39,6 +40,7 @@ export default function Layout() {
     <div className="flex min-h-screen flex-col">
       <CustomCursor />
       <ScrollBall />
+      <PageTransition />
       <Navbar />
       <div ref={wrapperRef} id="smooth-wrapper">
         <div ref={contentRef} id="smooth-content">
