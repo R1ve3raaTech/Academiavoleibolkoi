@@ -3,7 +3,7 @@ import Layout from '@/components/Layout'
 import Home from '@/Pages/Home'
 import Alianzas from '@/Pages/Alianzas'
 import Galeria from '@/Pages/Galeria'
-import Placeholder from '@/Pages/Placeholder'
+import Campamentos from '@/Pages/Campamentos'
 
 function App() {
   return (
@@ -12,10 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/alianzas" element={<Alianzas />} />
         <Route path="/galeria" element={<Galeria />} />
-        <Route
-          path="/campamentos"
-          element={<Placeholder title="Campamentos" />}
-        />
+        <Route path="/campamentos" element={<Campamentos />} />
       </Route>
     </Routes>
   )
