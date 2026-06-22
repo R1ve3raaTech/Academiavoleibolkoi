@@ -29,8 +29,8 @@ export default function Galeria() {
           <Carousel
             key={categoria.title}
             images={categoria.images}
-            fit="cover"
-            className="aspect-[4/5] rounded-2xl shadow-sm transition-transform duration-500 ease-out hover:-translate-y-1"
+            fit="contain"
+            className="aspect-[4/3] rounded-2xl shadow-sm transition-transform duration-500 ease-out hover:-translate-y-1"
             overlay={
               <div className="pointer-events-none absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/85 via-black/15 to-transparent p-5">
                 <h2 className="text-xl font-bold text-white">
