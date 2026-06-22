@@ -14,7 +14,7 @@ export default function Galeria() {
       </section>
 
       <Reveal as="section" className="px-8 py-20 text-center">
-        <p className="mx-auto max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-zinc-900 md:text-6xl">
+        <p className="mx-auto max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-zinc-900 md:text-6xl dark:text-zinc-50">
           Momentos de la Academia
         </p>
       </Reveal>
@@ -30,11 +30,11 @@ export default function Galeria() {
             }`}
           >
             <div className="text-left">
-              <h2 className="text-2xl font-bold text-blue-700">
+              <h2 className="text-2xl font-bold text-blue-700 dark:text-blue-400">
                 {categoria.title}
               </h2>
-              <div className="mt-2 h-1 w-10 bg-orange-600" />
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-600">
+              <div className="mt-2 h-1 w-10 bg-orange-600 dark:bg-orange-500" />
+              <p className="mt-4 max-w-md text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
                 {categoria.description}
               </p>
             </div>

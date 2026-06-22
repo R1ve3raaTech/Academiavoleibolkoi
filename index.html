@@ -19,6 +19,16 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/favicon.png" />
+    <script>
+      (function () {
+        var theme = localStorage.getItem('voleibolkoi-theme') || 'system'
+        var isDark =
+          theme === 'dark' ||
+          (theme === 'system' &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches)
+        if (isDark) document.documentElement.classList.add('dark')
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

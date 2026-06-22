@@ -78,7 +78,9 @@ export default function Carousel({ images, autoplay = true, interval = 4500 }) {
                 onClick={() => goTo(i)}
                 aria-label={`Imagen ${i + 1}`}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  i === index ? 'w-6 bg-orange-600' : 'w-1.5 bg-zinc-300'
+                  i === index
+                    ? 'w-6 bg-orange-600 dark:bg-orange-500'
+                    : 'w-1.5 bg-zinc-300 dark:bg-zinc-600'
                 }`}
               />
             ))}

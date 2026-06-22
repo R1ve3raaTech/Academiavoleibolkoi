@@ -15,7 +15,7 @@ export default function Campamentos() {
       </section>
 
       <Reveal as="section" className="px-8 py-20 text-center">
-        <p className="mx-auto max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-zinc-900 md:text-6xl">
+        <p className="mx-auto max-w-3xl text-4xl font-bold leading-[1.1] tracking-tight text-zinc-900 md:text-6xl dark:text-zinc-50">
           Campamentos a la comunidad
         </p>
       </Reveal>
@@ -43,11 +43,11 @@ export default function Campamentos() {
         </a>
 
         <div className="text-left">
-          <p className="text-base leading-relaxed text-zinc-600">
+          <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
             Como un acercamiento al deporte y disfrute vacacional, ofrecemos
             campamentos bajo objetivos lúdicos y de recreación.
           </p>
-          <p className="mt-4 text-base leading-relaxed text-zinc-600">
+          <p className="mt-4 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
             En estos campamentos se mantiene contacto con el deporte para
             todos los niveles, creando dispersión mediante salud y
             movimiento en las épocas donde los jóvenes están de vacaciones.
@@ -61,17 +61,17 @@ export default function Campamentos() {
         className="grid items-center gap-12 px-8 pb-24 md:grid-cols-2"
       >
         <div className="text-left">
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-orange-600">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-orange-600 dark:text-orange-500">
             Promoción del deporte
           </span>
-          <p className="mt-4 text-3xl font-bold leading-tight tracking-tight text-zinc-900 md:text-4xl">
+          <p className="mt-4 text-3xl font-bold leading-tight tracking-tight text-zinc-900 md:text-4xl dark:text-zinc-50">
             Salud y movimiento
           </p>
-          <p className="mt-5 text-base leading-relaxed text-zinc-600">
+          <p className="mt-5 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
             Incentivamos a nuestros jóvenes a moverse, agradecer sobre su
             salud y a esforzarse por ser mejores ciudadanos.
           </p>
-          <p className="mt-4 text-sm font-medium text-blue-700">
+          <p className="mt-4 text-sm font-medium text-blue-700 dark:text-blue-400">
             Con el apoyo del CCDR Alajuelita tuvimos la primera edición en
             enero de 2026.
           </p>
