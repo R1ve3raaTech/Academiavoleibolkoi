@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { gsap } from '@/lib/gsap'
 
 export default function Carousel({
@@ -67,26 +66,22 @@ export default function Carousel({
             type="button"
             onClick={() => goTo(index - 1)}
             aria-label="Anterior"
-            className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-1.5 opacity-0 shadow-md transition-opacity duration-300 group-hover:opacity-100"
-          >
-            <ChevronLeft className="h-4 w-4 text-zinc-800" />
-          </button>
+            className="absolute inset-y-0 left-0 z-10 w-1/2"
+          />
           <button
             type="button"
             onClick={() => goTo(index + 1)}
             aria-label="Siguiente"
-            className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/80 p-1.5 opacity-0 shadow-md transition-opacity duration-300 group-hover:opacity-100"
-          >
-            <ChevronRight className="h-4 w-4 text-zinc-800" />
-          </button>
+            className="absolute inset-y-0 right-0 z-10 w-1/2"
+          />
 
-          <div className="absolute inset-x-0 bottom-3 z-10 flex justify-center gap-2">
+          <div className="pointer-events-none absolute inset-x-0 bottom-3 z-10 flex justify-center gap-2">
             {images.map((_, i) => (
               <button
                 key={i}
                 onClick={() => goTo(i)}
                 aria-label={`Imagen ${i + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
+                className={`pointer-events-auto h-1.5 rounded-full transition-all duration-300 ${
                   i === index ? 'w-6 bg-orange-500' : 'w-1.5 bg-white/60'
                 }`}
               />
