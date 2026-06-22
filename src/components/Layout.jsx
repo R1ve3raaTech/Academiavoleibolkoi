@@ -4,7 +4,6 @@ import { ScrollSmoother, ScrollTrigger } from '@/lib/gsap'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import CustomCursor from './CustomCursor'
-import ScrollBall from './ScrollBall'
 import PageTransition from './PageTransition'
 
 export default function Layout() {
@@ -39,7 +38,6 @@ export default function Layout() {
   return (
     <div className="flex min-h-screen flex-col">
       <CustomCursor />
-      <ScrollBall />
       <PageTransition />
       <Navbar />
       <div ref={wrapperRef} id="smooth-wrapper">

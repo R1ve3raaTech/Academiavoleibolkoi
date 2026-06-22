@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Volleyball } from 'lucide-react'
-import { gsap } from '@/lib/gsap'
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 const INTERACTIVE_SELECTOR = 'a, button, input, textarea, [role="button"]'
 
@@ -16,21 +16,33 @@ export default function CustomCursor() {
     const el = dotRef.current
     const xTo = gsap.quickTo(el, 'x', { duration: 0.5, ease: 'fluid' })
     const yTo = gsap.quickTo(el, 'y', { duration: 0.5, ease: 'fluid' })
-    const rotateTo = gsap.quickTo(el, 'rotate', {
+    const rotateTo = gsap.quickTo(el, 'rotation', {
       duration: 0.8,
       ease: 'fluid',
     })
 
     let rotation = 0
-    let lastX = 0
+    let scrollVelocity = 0
 
     const onMove = (e) => {
       xTo(e.clientX)
       yTo(e.clientY)
-      rotation += (e.clientX - lastX) * 1.5
-      rotateTo(rotation)
-      lastX = e.clientX
     }
+
+    const scrollTrigger = ScrollTrigger.create({
+      onUpdate: (self) => {
+        scrollVelocity += self.getVelocity() / 200
+      },
+    })
+
+    const tick = () => {
+      if (Math.abs(scrollVelocity) > 0.01) {
+        rotation += scrollVelocity * gsap.ticker.deltaRatio()
+        rotateTo(rotation)
+      }
+      scrollVelocity *= 0.9 // decays to a stop shortly after scrolling stops
+    }
+    gsap.ticker.add(tick)
 
     const onOver = (e) => {
       if (e.target.closest?.(INTERACTIVE_SELECTOR)) {
@@ -60,6 +72,8 @@ export default function CustomCursor() {
       window.removeEventListener('mouseup', onUp)
       document.removeEventListener('mouseover', onOver)
       document.removeEventListener('mouseout', onOut)
+      gsap.ticker.remove(tick)
+      scrollTrigger.kill()
     }
   }, [])
 
